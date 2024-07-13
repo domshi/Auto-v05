@@ -14,6 +14,9 @@ while (True):
   print('4. DELETE Authorized Vehicle')
   print('5. Exit')
   selection = input("Please enter your choice: ")
+  if not selection.isnumeric():
+    print("Invalid Choice,Please select a valid choice from the menu")
+    continue
   if int(selection) == 1:
     print('The AutoCountry sales manager has authorized the purchase and selling of the following vehicles:')
     for vehicles in AllowedVehiclesList:
@@ -44,7 +47,6 @@ while (True):
         continue
       if confirmDelete != 'Yes':
         print('Please enter Yes or No')
-        continue
       if confirmDelete == 'Yes':
         AllowedVehiclesList.remove(vehicleDelete)
         print('You have REMOVED "' + (vehicleDelete) + '" from the Authorized Vehicle List')
